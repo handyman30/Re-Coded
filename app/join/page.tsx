@@ -7,7 +7,16 @@ import Footer from '../components/Footer'
 import { Upload, User, Mail, Phone, MapPin, FileText, CheckCircle } from 'lucide-react'
 
 export default function JoinPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    location: string;
+    experience: string;
+    skills: string;
+    resume: File | null;
+  }>({
     firstName: '',
     lastName: '',
     email: '',
@@ -24,7 +33,7 @@ export default function JoinPage() {
   }
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
+    const file = e.target.files?.[0] || null
     setFormData(prev => ({ ...prev, resume: file }))
   }
 

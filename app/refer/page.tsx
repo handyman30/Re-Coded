@@ -7,7 +7,17 @@ import Footer from '../components/Footer'
 import { Users, DollarSign, CheckCircle, ArrowRight, Star } from 'lucide-react'
 
 export default function ReferPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    referrerName: string;
+    referrerEmail: string;
+    referrerPhone: string;
+    friendName: string;
+    friendEmail: string;
+    friendPhone: string;
+    friendSkills: string;
+    relationship: string;
+    additionalInfo: string;
+  }>({
     referrerName: '',
     referrerEmail: '',
     referrerPhone: '',

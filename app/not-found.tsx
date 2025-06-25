@@ -29,13 +29,13 @@ export default function NotFound() {
               <Home className="w-5 h-5" />
               Go Home
             </Link>
-            <button 
-              onClick={() => window.history.back()}
+            <Link 
+              href="/about"
               className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300"
             >
               <ArrowLeft className="w-5 h-5" />
-              Go Back
-            </button>
+              About Us
+            </Link>
           </div>
           
           <div className="mt-12 text-gray-300">
