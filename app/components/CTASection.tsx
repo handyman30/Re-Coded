@@ -6,7 +6,7 @@ import { Upload, UserPlus, ArrowRight } from 'lucide-react'
 
 const CTASection = () => {
   return (
-    <section className="section-padding bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700">
+    <section className="section-padding bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <motion.h2
@@ -23,7 +23,7 @@ const CTASection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-xl text-purple-100 max-w-3xl mx-auto"
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
           >
             Join our network of exceptional talent or find the perfect candidates for your team.
           </motion.p>
@@ -36,9 +36,9 @@ const CTASection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
+            className="bg-gray-900 rounded-2xl p-8 border border-gray-800"
           >
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+            <div className="w-16 h-16 bg-purple-gradient rounded-full flex items-center justify-center mb-6">
               <Upload className="w-8 h-8 text-white" />
             </div>
             
@@ -46,11 +46,11 @@ const CTASection = () => {
               Join Our Network
             </h3>
             
-            <p className="text-purple-100 mb-6 leading-relaxed">
+            <p className="text-gray-300 mb-6 leading-relaxed">
               Upload your CV and become part of our exclusive talent network. We'll connect you with exciting opportunities that match your skills.
             </p>
             
-            <button className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-50 transition-all duration-300 flex items-center gap-2">
+            <button className="btn-primary flex items-center gap-2">
               Upload CV <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
@@ -61,9 +61,9 @@ const CTASection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
+            className="bg-gray-900 rounded-2xl p-8 border border-gray-800"
           >
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+            <div className="w-16 h-16 bg-purple-gradient rounded-full flex items-center justify-center mb-6">
               <UserPlus className="w-8 h-8 text-white" />
             </div>
             
@@ -71,11 +71,11 @@ const CTASection = () => {
               Refer a Friend
             </h3>
             
-            <p className="text-purple-100 mb-6 leading-relaxed">
+            <p className="text-gray-300 mb-6 leading-relaxed">
               Know someone great? Refer them to us and earn $1,000 when we successfully place them in a new role.
             </p>
             
-            <button className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-50 transition-all duration-300 flex items-center gap-2">
+            <button className="btn-primary flex items-center gap-2">
               Refer Now <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
@@ -89,11 +89,11 @@ const CTASection = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 inline-block">
-            <p className="text-white text-lg mb-4">
+          <div className="bg-gray-900 rounded-2xl p-8 border border-gray-800 inline-block">
+            <p className="text-gray-300 text-lg mb-4">
               Ready to transform your career or business?
             </p>
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-all duration-300 text-lg">
+            <button className="btn-primary text-lg">
               Send us your resume
             </button>
           </div>

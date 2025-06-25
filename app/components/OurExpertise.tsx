@@ -46,7 +46,7 @@ const OurExpertise = () => {
   ]
 
   return (
-    <section id="expertise" className="section-padding bg-gray-50">
+    <section id="expertise" className="section-padding bg-black">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -55,10 +55,10 @@ const OurExpertise = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
             Our <span className="gradient-text">Expertise</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Unlocking business potential with expert-led technology solutions across multiple domains.
           </p>
         </motion.div>
@@ -76,16 +76,16 @@ const OurExpertise = () => {
                 viewport={{ once: true }}
                 className="flex-shrink-0 w-80 mr-6 last:mr-0"
               >
-                <div className="bg-white rounded-2xl p-8 shadow-lg card-hover h-full">
+                <div className="bg-gray-900 rounded-2xl p-8 shadow-lg card-hover h-full border border-gray-800">
                   <div className="w-16 h-16 bg-purple-gradient rounded-full flex items-center justify-center mb-6">
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-white mb-4">
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -105,17 +105,17 @@ const OurExpertise = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-lg card-hover"
+                className="bg-gray-900 rounded-2xl p-8 shadow-lg card-hover border border-gray-800"
               >
                 <div className="w-16 h-16 bg-purple-gradient rounded-full flex items-center justify-center mb-6">
                   <IconComponent className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-bold text-white mb-4">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MapPin, Mail, ExternalLink } from 'lucide-react'
 
 const Footer = () => {
@@ -11,7 +12,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold gradient-text mb-4">RECODED</h3>
+            <Image
+              src="/assets/Recoded Long Logo (White).png"
+              alt="RECODED"
+              width={150}
+              height={40}
+              className="h-10 w-auto mb-4"
+            />
             <p className="text-gray-300 mb-6 leading-relaxed">
               Unlocking business potential with expert-led technology solutions. 
               We bridge the gap between exceptional talent and innovative companies.

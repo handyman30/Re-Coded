@@ -1,6 +1,7 @@
 import React from 'react'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {children}
+        <Script src="https://player.vimeo.com/api/player.js" strategy="afterInteractive" />
       </body>
     </html>
   )
