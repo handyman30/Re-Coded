@@ -66,3 +66,56 @@ Currently none required, but you can add:
 - ✅ Minimal JavaScript bundle
 
 The website is now ready for production deployment! 🚀 
+
+# Deployment Instructions
+
+## Important: API Routes Requirement
+
+This website now includes API routes for form submissions (email functionality). This means the site can no longer be deployed as a static site. You'll need a hosting platform that supports server-side Next.js applications.
+
+## Recommended Deployment Options:
+
+### 1. Vercel (Recommended)
+Vercel is the easiest option as it's built by the creators of Next.js:
+1. Push your code to GitHub
+2. Connect your GitHub repo to Vercel
+3. Add environment variable: `RESEND_API_KEY=your_api_key`
+4. Deploy
+
+### 2. Netlify with Next.js Plugin
+To deploy on Netlify with API routes:
+1. Install Netlify plugin: `npm install -D @netlify/plugin-nextjs`
+2. Update `netlify.toml`:
+```toml
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+```
+3. Add environment variable in Netlify dashboard: `RESEND_API_KEY`
+4. Deploy
+
+### 3. Other Platforms
+- **Railway**: Supports Next.js with zero configuration
+- **Render**: Supports Next.js applications
+- **AWS Amplify**: Supports server-side Next.js
+
+## Static Export (No Forms)
+
+If you want to deploy as a static site (forms won't work), you can:
+1. Re-enable static export in `next.config.js`:
+```javascript
+output: 'export',
+```
+2. Remove or disable form functionality
+3. Deploy to any static hosting
+
+## Environment Variables
+
+Remember to add your `RESEND_API_KEY` to your hosting platform's environment variables for forms to work.
+
+## Current Configuration
+
+The site is currently configured for server-side deployment to support email functionality through the API routes. 
