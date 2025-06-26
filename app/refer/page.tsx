@@ -68,7 +68,7 @@ export default function ReferPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
+      <section className="section-padding bg-black text-white">
         <div className="max-w-7xl mx-auto pt-16">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -79,14 +79,24 @@ export default function ReferPage() {
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Refer a <span className="gradient-text">Friend</span>
             </h1>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
               Good people refer good people. Share the opportunity and earn $1,000 for successful placements.
             </p>
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-              <DollarSign className="w-6 h-6 text-green-400" />
-              <span className="text-2xl font-bold">$1,000</span>
+            <motion.div 
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20"
+              animate={{ 
+                scale: [1, 1.05, 1],
+                rotate: [0, -2, 2, -2, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatDelay: 3
+              }}
+            >
+              <span className="text-2xl font-bold text-green-400">$1,000</span>
               <span className="text-gray-200">Referral Reward</span>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -134,80 +144,7 @@ export default function ReferPage() {
         </div>
       </section>
 
-      {/* Terms & Benefits */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                Why Our <span className="gradient-text">Referral Program</span> Works
-              </h2>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">No Limits</h4>
-                    <p className="text-gray-600">Refer as many friends as you want - earn $1,000 for each successful placement.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Fast Payments</h4>
-                    <p className="text-gray-600">Receive your reward within 30 days of successful placement confirmation.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Quality Focus</h4>
-                    <p className="text-gray-600">We value quality referrals and provide feedback throughout the process.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Professional Network</h4>
-                    <p className="text-gray-600">Help expand your professional network while earning rewards.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-8 shadow-xl"
-            >
-              <div className="text-center mb-8">
-                <Star className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Terms & Conditions</h3>
-                <p className="text-gray-600">Simple and transparent terms</p>
-              </div>
-              
-              <div className="space-y-3 text-sm text-gray-700">
-                <p>• Referral reward paid upon successful placement confirmation</p>
-                <p>• Minimum 3-month employment period required</p>
-                <p>• Referrer and candidate must not be currently engaged with Recoded</p>
-                <p>• Multiple referrals of the same candidate not eligible</p>
-                <p>• Payments processed within 30 days of meeting criteria</p>
-                <p>• Terms and conditions apply - full details provided upon submission</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* Referral Form */}
       <section className="section-padding bg-gray-50">
@@ -401,6 +338,18 @@ export default function ReferPage() {
               Submit Referral <ArrowRight className="w-5 h-5" />
             </button>
           </motion.form>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-8"
+          >
+            <p className="text-sm text-gray-600">
+              <span className="font-semibold">Terms and Conditions:</span> Minimum 6 month employment period required.
+            </p>
+          </motion.div>
         </div>
       </section>
 

@@ -8,40 +8,58 @@ import {
   BarChart3, 
   Shield, 
   Briefcase, 
-  Settings 
+  Settings,
+  Brain,
+  Database,
+  Palette 
 } from 'lucide-react'
 
 const OurExpertise = () => {
   const services = [
     {
-      icon: Cloud,
-      title: 'Cloud, DevOps, Infrastructure',
-      description: 'Modernize your infrastructure with cloud-native solutions and DevOps practices.'
-    },
-    {
       icon: Code,
       title: 'Software Engineering & Architecture',
-      description: 'Build scalable applications with cutting-edge development practices.'
+      description: 'Build scalable applications with cutting-edge development practices and architectural patterns.'
     },
     {
-      icon: BarChart3,
-      title: 'Business Transformation',
-      description: 'Transform your business processes with technology-driven solutions.'
-    },
-    {
-      icon: BarChart3,
-      title: 'Data & Analytics',
-      description: 'Unlock insights from your data with advanced analytics solutions.'
-    },
-    {
-      icon: Briefcase,
-      title: 'Project Services',
-      description: 'End-to-end project management and delivery services.'
+      icon: Cloud,
+      title: 'Cloud, DevOps & SRE',
+      description: 'Modernize your infrastructure with cloud-native solutions, DevOps practices, and site reliability engineering.'
     },
     {
       icon: Shield,
       title: 'Cybersecurity',
-      description: 'Protect your digital assets with comprehensive security solutions.'
+      description: 'Protect your digital assets with comprehensive security solutions and threat prevention strategies.'
+    },
+    {
+      icon: Database,
+      title: 'Data & Analytics',
+      description: 'Unlock insights from your data with advanced analytics solutions and data-driven decision making.'
+    },
+    {
+      icon: Brain,
+      title: 'AI',
+      description: 'Leverage artificial intelligence and machine learning to automate processes and gain competitive advantage.'
+    },
+    {
+      icon: Settings,
+      title: 'Infrastructure',
+      description: 'Design and implement robust IT infrastructure solutions that scale with your business needs.'
+    },
+    {
+      icon: Briefcase,
+      title: 'Project Services',
+      description: 'End-to-end project management and delivery services ensuring successful outcomes.'
+    },
+    {
+      icon: BarChart3,
+      title: 'Business Transformation',
+      description: 'Transform your business processes with technology-driven solutions and strategic innovation.'
+    },
+    {
+      icon: Palette,
+      title: 'Digital',
+      description: 'Create exceptional digital experiences through innovative design, UX/UI, and creative solutions.'
     }
   ]
 
@@ -56,14 +74,14 @@ const OurExpertise = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Our <span className="gradient-text">Expertise</span>
+            What We <span className="gradient-text">Do</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Unlocking business potential with expert-led technology solutions across multiple domains.
           </p>
         </motion.div>
 
-        {/* Horizontal Scrolling Services */}
+        {/* Horizontal Scrolling Services for Mobile */}
         <div className="horizontal-scroll pb-4">
           {services.map((service, index) => {
             const IconComponent = service.icon

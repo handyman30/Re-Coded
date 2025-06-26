@@ -62,7 +62,7 @@ const AboutUs = () => {
                     <div className="text-sm text-gray-400">Placements Made</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold gradient-text">95%</div>
+                    <div className="text-3xl font-bold gradient-text">95+%</div>
                     <div className="text-sm text-gray-400">Client Satisfaction</div>
                   </div>
                 </div>

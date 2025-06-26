@@ -9,24 +9,24 @@ import { Code, Cloud, BarChart3, Shield, Users, ArrowRight } from 'lucide-react'
 export default function ConsultingPage() {
   const services = [
     {
-      icon: Cloud,
-      title: 'DevOps & Infrastructure',
-      description: 'Optimise your development pipelines and infrastructure for maximum efficiency.'
-    },
-    {
       icon: Code,
       title: 'Legacy System Transformation',
       description: 'Modernize your legacy systems with cutting-edge technology solutions.'
     },
     {
       icon: BarChart3,
-      title: 'Enterprise Programs',
-      description: 'Deliver complex enterprise-wide programs with expert project management.'
+      title: 'Enterprise Program Capability Uplift',
+      description: 'Deliver complex enterprise-wide programs with expert technology professionals.'
+    },
+    {
+      icon: Cloud,
+      title: 'End-to-End Project Services',
+      description: 'Deliver full project lifecycle support —from strategy and design through to execution and delivery — ensuring outcomes are met with precision.'
     },
     {
       icon: Shield,
-      title: 'Development Features',
-      description: 'Build new development features that drive business growth and innovation.'
+      title: 'Data Services, Solutions, and Insights',
+      description: 'Harness your data and analytics solutions to drive smarter decisions and business growth.'
     }
   ]
 
@@ -35,7 +35,7 @@ export default function ConsultingPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
+      <section className="section-padding bg-black text-white">
         <div className="max-w-7xl mx-auto pt-16">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -46,7 +46,7 @@ export default function ConsultingPage() {
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               IT <span className="gradient-text">Consulting</span>
             </h1>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Unlock your business potential with expert-led technology solutions.
             </p>
           </motion.div>
@@ -104,8 +104,8 @@ export default function ConsultingPage() {
                     <div className="text-sm text-gray-600">Expert Consultants</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold gradient-text mb-2">24/7</div>
-                    <div className="text-sm text-gray-600">Support Available</div>
+                    <div className="text-4xl font-bold gradient-text mb-2">100+</div>
+                    <div className="text-sm text-gray-600">Projects Delivered</div>
                   </div>
                 </div>
               </div>

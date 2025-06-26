@@ -71,7 +71,7 @@ export default function JoinPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
+      <section className="section-padding bg-black text-white">
         <div className="max-w-7xl mx-auto pt-16">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -82,7 +82,7 @@ export default function JoinPage() {
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Join Our <span className="gradient-text">Network</span>
             </h1>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Connect with leading technology companies and accelerate your career growth with Recoded.
             </p>
           </motion.div>
