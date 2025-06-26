@@ -426,7 +426,7 @@ export default function JoinPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full btn-primary text-lg py-4"
+              className="w-full btn-primary text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? <Loader2 className="w-6 h-6 mx-auto animate-spin" /> : 'Submit Application'}
             </button>

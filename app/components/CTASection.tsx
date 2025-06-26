@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Upload, UserPlus, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 const CTASection = () => {
   return (
@@ -50,9 +51,9 @@ const CTASection = () => {
               Upload your CV and become part of our exclusive talent network. We'll connect you with exciting opportunities that match your skills.
             </p>
             
-            <button className="btn-primary flex items-center gap-2">
+            <Link href="/join" className="btn-primary inline-flex items-center gap-2">
               Upload CV <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </motion.div>
 
           {/* Refer a Friend Card */}
@@ -75,9 +76,9 @@ const CTASection = () => {
               Know someone great? Refer them to us and earn $1,000 when we successfully place them in a new role.
             </p>
             
-            <button className="btn-primary flex items-center gap-2">
+            <Link href="/refer" className="btn-primary inline-flex items-center gap-2">
               Refer Now <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </motion.div>
         </div>
 
@@ -93,9 +94,9 @@ const CTASection = () => {
             <p className="text-gray-300 text-lg mb-4">
               Ready to transform your career or business?
             </p>
-            <button className="btn-primary text-lg">
+            <Link href="/join" className="btn-primary text-lg">
               Send us your resume
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>
