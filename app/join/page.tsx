@@ -4,9 +4,11 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
-import { Upload, User, Mail, Phone, MapPin, FileText, CheckCircle } from 'lucide-react'
+import { Upload, User, Mail, Phone, MapPin, FileText, CheckCircle, Loader2 } from 'lucide-react'
+import toast from 'react-hot-toast'
 
 export default function JoinPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState<{
     firstName: string;
     lastName: string;
@@ -34,13 +36,69 @@ export default function JoinPage() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null
+    if (file && file.size > 5 * 1024 * 1024) {
+      toast.error('File size must be less than 5MB')
+      return
+    }
     setFormData(prev => ({ ...prev, resume: file }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
+    
+    if (!formData.resume) {
+      toast.error('Please upload your CV/Resume')
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      const submitData = new FormData()
+      submitData.append('firstName', formData.firstName)
+      submitData.append('lastName', formData.lastName)
+      submitData.append('email', formData.email)
+      submitData.append('phone', formData.phone)
+      submitData.append('location', formData.location)
+      submitData.append('experience', formData.experience)
+      submitData.append('skills', formData.skills)
+      submitData.append('resume', formData.resume)
+
+      const response = await fetch('/api/contact/join', {
+        method: 'POST',
+        body: submitData,
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit application')
+      }
+
+      toast.success('Application submitted successfully! We\'ll be in touch soon.')
+      
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        location: '',
+        experience: '',
+        skills: '',
+        resume: null
+      })
+
+      // Reset file input
+      const fileInput = document.getElementById('resume') as HTMLInputElement
+      if (fileInput) fileInput.value = ''
+
+    } catch (error) {
+      console.error('Submission error:', error)
+      toast.error(error instanceof Error ? error.message : 'Failed to submit application. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const benefits = [
@@ -303,9 +361,10 @@ export default function JoinPage() {
 
             <button
               type="submit"
+              disabled={isSubmitting}
               className="w-full btn-primary text-lg py-4"
             >
-              Submit Application
+              {isSubmitting ? <Loader2 className="w-6 h-6 mx-auto animate-spin" /> : 'Submit Application'}
             </button>
           </motion.form>
         </div>

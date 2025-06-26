@@ -172,9 +172,12 @@ export default function ConsultingPage() {
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Let's discuss how our expert consultants can help accelerate your technology initiatives.
             </p>
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-all duration-300 text-lg flex items-center gap-2 mx-auto">
+            <a 
+              href="mailto:hello@re-coded.com.au?subject=IT Consulting Inquiry&body=Hi, I'm interested in learning more about your IT consulting services."
+              className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-all duration-300 text-lg flex items-center gap-2 mx-auto inline-flex"
+            >
               Get Started <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
           </motion.div>
         </div>
       </section>

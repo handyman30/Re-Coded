@@ -4,9 +4,11 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
-import { Users, DollarSign, CheckCircle, ArrowRight, Star } from 'lucide-react'
+import { Users, DollarSign, CheckCircle, ArrowRight, Star, Loader2 } from 'lucide-react'
+import toast from 'react-hot-toast'
 
 export default function ReferPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState<{
     referrerName: string;
     referrerEmail: string;
@@ -34,10 +36,47 @@ export default function ReferPage() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Referral submitted:', formData)
+    
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/contact/refer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit referral')
+      }
+
+      toast.success('Referral submitted successfully! We\'ll be in touch with both you and your friend soon.')
+      
+      // Reset form
+      setFormData({
+        referrerName: '',
+        referrerEmail: '',
+        referrerPhone: '',
+        friendName: '',
+        friendEmail: '',
+        friendPhone: '',
+        friendSkills: '',
+        relationship: '',
+        additionalInfo: ''
+      })
+
+    } catch (error) {
+      console.error('Submission error:', error)
+      toast.error(error instanceof Error ? error.message : 'Failed to submit referral. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const steps = [
@@ -143,8 +182,6 @@ export default function ReferPage() {
           </div>
         </div>
       </section>
-
-
 
       {/* Referral Form */}
       <section className="section-padding bg-gray-50">
@@ -334,8 +371,15 @@ export default function ReferPage() {
             <button
               type="submit"
               className="w-full btn-primary text-lg py-4 flex items-center justify-center gap-2"
+              disabled={isSubmitting}
             >
-              Submit Referral <ArrowRight className="w-5 h-5" />
+              {isSubmitting ? (
+                <Loader2 className="w-5 h-5 animate-spin" />
+              ) : (
+                <>
+                  Submit Referral <ArrowRight className="w-5 h-5" />
+                </>
+              )}
             </button>
           </motion.form>
           
