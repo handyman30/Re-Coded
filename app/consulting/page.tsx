@@ -104,8 +104,8 @@ export default function ConsultingPage() {
                     <div className="text-sm text-gray-600">Expert Consultants</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold gradient-text mb-2">100+</div>
-                    <div className="text-sm text-gray-600">Projects Delivered</div>
+                    <div className="text-4xl font-bold gradient-text mb-2">10+</div>
+                    <div className="text-sm text-gray-600">Years Experience</div>
                   </div>
                 </div>
               </div>

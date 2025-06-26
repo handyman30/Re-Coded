@@ -42,15 +42,4 @@
   }
 }
 
-/* Horizontal scroll sections */
-.horizontal-scroll {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.horizontal-scroll::-webkit-scrollbar {
-  display: none;
-} 
+ 
