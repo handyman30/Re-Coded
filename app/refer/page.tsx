@@ -228,7 +228,7 @@ export default function ReferPage() {
                     required
                     value={formData.referrerName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
                 
@@ -243,7 +243,7 @@ export default function ReferPage() {
                     required
                     value={formData.referrerEmail}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
               </div>
@@ -258,7 +258,7 @@ export default function ReferPage() {
                   name="referrerPhone"
                   value={formData.referrerPhone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
                 />
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function ReferPage() {
                     required
                     value={formData.friendName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
                 
@@ -297,7 +297,7 @@ export default function ReferPage() {
                     required
                     value={formData.friendEmail}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
               </div>
@@ -312,7 +312,7 @@ export default function ReferPage() {
                   name="friendPhone"
                   value={formData.friendPhone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
                 />
               </div>
 
@@ -328,7 +328,7 @@ export default function ReferPage() {
                   value={formData.friendSkills}
                   onChange={handleInputChange}
                   placeholder="Tell us about their technical skills, experience level, and what type of roles they're interested in..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
                 />
               </div>
 
@@ -341,7 +341,7 @@ export default function ReferPage() {
                   name="relationship"
                   value={formData.relationship}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
                 >
                   <option value="">Select relationship</option>
                   <option value="colleague">Current/Former Colleague</option>
@@ -363,7 +363,7 @@ export default function ReferPage() {
                   value={formData.additionalInfo}
                   onChange={handleInputChange}
                   placeholder="Any additional information that might help us connect with your friend..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 bg-white"
                 />
               </div>
             </div>
