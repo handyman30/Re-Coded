@@ -1,14 +1,18 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
-import { Upload, User, Mail, Phone, MapPin, FileText, CheckCircle, Loader2 } from 'lucide-react'
+import { Upload, User, Mail, Phone, MapPin, FileText, CheckCircle, Loader2, X } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 export default function JoinPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isDragging, setIsDragging] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+  
   const [formData, setFormData] = useState<{
     firstName: string;
     lastName: string;
@@ -34,13 +38,62 @@ export default function JoinPage() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null
-    if (file && file.size > 5 * 1024 * 1024) {
+  const processFile = async (file: File) => {
+    if (file.size > 5 * 1024 * 1024) {
       toast.error('File size must be less than 5MB')
       return
     }
+    
+    // Update form data with the file
     setFormData(prev => ({ ...prev, resume: file }))
+    
+    // Auto-submit if basic info is filled
+    if (formData.firstName && formData.lastName && formData.email) {
+      // Small delay to show file upload success
+      setTimeout(() => {
+        formRef.current?.requestSubmit()
+      }, 500)
+    } else {
+      toast('Please fill in your basic information before uploading your resume', {
+        icon: '📝',
+      })
+    }
+  }
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      await processFile(file)
+    }
+  }
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragging(true)
+  }
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragging(false)
+  }
+
+  const handleDrop = async (e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragging(false)
+    
+    const file = e.dataTransfer.files[0]
+    if (file && (file.type === 'application/pdf' || file.type.includes('word') || file.name.endsWith('.doc') || file.name.endsWith('.docx'))) {
+      await processFile(file)
+    } else {
+      toast.error('Please upload a PDF or Word document')
+    }
+  }
+
+  const removeFile = () => {
+    setFormData(prev => ({ ...prev, resume: null }))
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -90,8 +143,9 @@ export default function JoinPage() {
       })
 
       // Reset file input
-      const fileInput = document.getElementById('resume') as HTMLInputElement
-      if (fileInput) fileInput.value = ''
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
 
     } catch (error) {
       console.error('Submission error:', error)
@@ -218,6 +272,7 @@ export default function JoinPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            ref={formRef}
             onSubmit={handleSubmit}
             className="bg-gray-50 rounded-2xl p-8 shadow-lg"
           >
@@ -337,13 +392,19 @@ export default function JoinPage() {
               <label htmlFor="resume" className="block text-sm font-medium text-gray-700 mb-2">
                 Upload Resume/CV *
               </label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-500 transition-colors duration-300">
+              <div
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+                className={`border-2 ${isDragging ? 'border-purple-500' : 'border-dashed border-gray-300'} rounded-lg p-8 text-center hover:border-purple-500 transition-colors duration-300`}
+              >
                 <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                 <input
                   type="file"
                   id="resume"
                   name="resume"
                   accept=".pdf,.doc,.docx"
+                  ref={fileInputRef}
                   onChange={handleFileChange}
                   className="hidden"
                 />
@@ -351,9 +412,12 @@ export default function JoinPage() {
                   <span className="text-purple-600 font-medium">Click to upload</span> or drag and drop
                   <p className="text-sm text-gray-500 mt-2">PDF, DOC, or DOCX (max 5MB)</p>
                   {formData.resume && (
-                    <p className="text-sm text-green-600 mt-2">
-                      ✓ {formData.resume.name}
-                    </p>
+                    <div className="flex items-center justify-center mt-2">
+                      <X className="w-4 h-4 text-red-600 mr-2 cursor-pointer" onClick={removeFile} />
+                      <span className="text-sm text-green-600">
+                        {formData.resume.name}
+                      </span>
+                    </div>
                   )}
                 </label>
               </div>
