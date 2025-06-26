@@ -92,7 +92,7 @@ export default function ConsultingPage() {
               <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-8 shadow-2xl">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-4xl font-bold gradient-text mb-2">200+</div>
+                    <div className="text-4xl font-bold gradient-text mb-2">100+</div>
                     <div className="text-sm text-gray-600">Projects Delivered</div>
                   </div>
                   <div className="text-center">
