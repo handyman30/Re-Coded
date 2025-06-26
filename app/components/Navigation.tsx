@@ -10,7 +10,7 @@ const Navigation = () => {
 
   const menuItems = [
     { name: 'About Us', href: '/about' },
-    { name: 'What We Do', href: '#expertise' },
+    { name: 'What We Do', href: '/#expertise' },
     { name: 'IT Consulting', href: '/consulting' },
     { name: 'Join Our Network', href: '/join' },
     { name: 'Refer a Friend', href: '/refer' },
