@@ -3,6 +3,9 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder')
 
+// Use test email in development, client email in production
+const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'hello@re-coded.com.au'
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -50,9 +53,10 @@ export async function POST(request: NextRequest) {
     `
 
     // Send email to Recoded
+    console.log(`Attempting to send referral email to: ${RECIPIENT_EMAIL}`)
     const { data, error } = await resend.emails.send({
       from: 'Recoded Website <onboarding@resend.dev>',
-      to: ['hello@re-coded.com.au'],
+      to: [RECIPIENT_EMAIL],
       subject: `New Referral: ${friendName} (referred by ${referrerName})`,
       html: emailContent,
     })

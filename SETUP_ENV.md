@@ -6,9 +6,59 @@ Create a `.env.local` file in the root directory of the project with the followi
 
 ```
 RESEND_API_KEY=re_SwyVDDAp_D9LDWR8w7LoCV9TM3cyTaBC7
+
+# For testing - use your own email
+RECIPIENT_EMAIL=your-test-email@gmail.com
 ```
 
 This file should be in the same directory as your `package.json` file.
+
+## Testing Email Setup
+
+Since you don't have access to `hello@re-coded.com.au`, add your own email to test:
+1. Set `RECIPIENT_EMAIL` to your email address
+2. All form submissions will go to your test email
+3. When ready for production, remove this line (defaults to client's email)
+
+## Alternative Solutions (If Resend Doesn't Work)
+
+### 1. FormSubmit (No Backend Required)
+```html
+<!-- Replace form action with -->
+<form action="https://formsubmit.co/your-email@example.com" method="POST">
+```
+- Free, no registration needed
+- Just change the email in the URL
+- Add `_next` hidden field for redirect
+
+### 2. Web3Forms (Simple API)
+```javascript
+const response = await fetch('https://api.web3forms.com/submit', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    access_key: 'YOUR_ACCESS_KEY',
+    ...formData
+  })
+})
+```
+- Get free key at web3forms.com
+- No domain verification needed
+
+### 3. EmailJS (Client-Side)
+```javascript
+emailjs.send('service_id', 'template_id', formData, 'public_key')
+```
+- Works directly from browser
+- No server needed
+- Free tier available
+
+## Debugging Tips
+
+1. Check browser console for detailed errors
+2. Check terminal/server logs for API errors
+3. Try sending without attachments first
+4. Verify Resend dashboard for failed attempts
 
 ## Important Notes
 
@@ -43,4 +93,4 @@ After creating the `.env.local` file:
    - `/join` - Join Our Network
    - `/refer` - Refer a Friend
 
-Emails will be sent to `hello@re-coded.com.au` 
+Emails will be sent to the email specified in `RECIPIENT_EMAIL` environment variable. 

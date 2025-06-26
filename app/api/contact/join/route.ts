@@ -3,6 +3,9 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder')
 
+// Use test email in development, client email in production
+const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'hello@re-coded.com.au'
+
 export async function POST(request: NextRequest) {
   try {
     // Check if API key is configured
@@ -49,10 +52,12 @@ export async function POST(request: NextRequest) {
       <p>${skills || 'Not provided'}</p>
     `
 
+    console.log(`Attempting to send email to: ${RECIPIENT_EMAIL}`)
+
     // Send email with Resend
     const { data, error } = await resend.emails.send({
       from: 'Recoded Website <onboarding@resend.dev>',
-      to: ['hello@re-coded.com.au'],
+      to: [RECIPIENT_EMAIL],
       subject: `New Talent Application: ${firstName} ${lastName}`,
       html: emailContent,
       attachments: [
@@ -66,10 +71,12 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error('Resend error:', error)
       return NextResponse.json(
-        { error: 'Failed to send email' },
+        { error: 'Failed to send email', details: error },
         { status: 500 }
       )
     }
+
+    console.log('Email sent successfully:', data)
 
     // Send confirmation email to applicant
     await resend.emails.send({
@@ -88,7 +95,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error processing form:', error)
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     )
   }
