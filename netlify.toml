@@ -1,12 +1,12 @@
 [build]
   command = "npm run build"
-  publish = "out"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirect rules for client-side routing
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404 
+# Enable Next.js Runtime
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Environment variables are set in Netlify dashboard 

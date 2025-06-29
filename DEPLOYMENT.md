@@ -73,34 +73,41 @@ The website is now ready for production deployment! 🚀
 
 This website now includes API routes for form submissions (email functionality). This means the site can no longer be deployed as a static site. You'll need a hosting platform that supports server-side Next.js applications.
 
-## Recommended Deployment Options:
+## Deploying to Netlify (Current Configuration)
 
-### 1. Vercel (Recommended)
-Vercel is the easiest option as it's built by the creators of Next.js:
+The site is already configured for Netlify deployment with the Next.js runtime. Here's what you need to do:
+
+1. **Connect to Netlify**:
+   - Push your code to GitHub/GitLab/Bitbucket
+   - Connect your repository to Netlify
+
+2. **Environment Variables**:
+   In Netlify Dashboard > Site Settings > Environment Variables, add:
+   ```
+   RESEND_API_KEY=re_SwyVDDAp_D9LDWR8w7LoCV9TM3cyTaBC7
+   RECIPIENT_EMAIL=your-test-email@gmail.com  # Optional: for testing
+   ```
+
+3. **Deploy**:
+   - Netlify will automatically detect Next.js and use the plugin
+   - The `netlify.toml` file is already configured correctly
+
+## Alternative Deployment Options:
+
+### 1. Vercel (Easiest)
+Vercel is built by the creators of Next.js:
 1. Push your code to GitHub
 2. Connect your GitHub repo to Vercel
-3. Add environment variable: `RESEND_API_KEY=your_api_key`
+3. Add environment variables in Vercel dashboard
 4. Deploy
 
-### 2. Netlify with Next.js Plugin
-To deploy on Netlify with API routes:
-1. Install Netlify plugin: `npm install -D @netlify/plugin-nextjs`
-2. Update `netlify.toml`:
-```toml
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+### 2. Railway
+- Supports Next.js with zero configuration
+- Just connect repo and add env variables
 
-[build]
-  command = "npm run build"
-  publish = ".next"
-```
-3. Add environment variable in Netlify dashboard: `RESEND_API_KEY`
-4. Deploy
-
-### 3. Other Platforms
-- **Railway**: Supports Next.js with zero configuration
-- **Render**: Supports Next.js applications
-- **AWS Amplify**: Supports server-side Next.js
+### 3. Render
+- Supports Next.js applications
+- Simple deployment process
 
 ## Static Export (No Forms)
 
@@ -109,12 +116,9 @@ If you want to deploy as a static site (forms won't work), you can:
 ```javascript
 output: 'export',
 ```
-2. Remove or disable form functionality
-3. Deploy to any static hosting
-
-## Environment Variables
-
-Remember to add your `RESEND_API_KEY` to your hosting platform's environment variables for forms to work.
+2. Update `netlify.toml` to use `publish = "out"`
+3. Remove or disable form functionality
+4. Deploy to any static hosting
 
 ## Current Configuration
 
