@@ -84,7 +84,7 @@ The site is already configured for Netlify deployment with the Next.js runtime. 
 2. **Environment Variables**:
    In Netlify Dashboard > Site Settings > Environment Variables, add:
    ```
-   RESEND_API_KEY=re_SwyVDDAp_D9LDWR8w7LoCV9TM3cyTaBC7
+   RESEND_API_KEY=re_Q8Sn6yFj_CxPc1AqpVG5eLiJuuA7gCADk
    RECIPIENT_EMAIL=your-test-email@gmail.com  # Optional: for testing
    ```
 

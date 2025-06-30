@@ -5,7 +5,7 @@
 Create a `.env.local` file in the root directory of the project with the following content:
 
 ```
-RESEND_API_KEY=re_SwyVDDAp_D9LDWR8w7LoCV9TM3cyTaBC7
+RESEND_API_KEY=re_Q8Sn6yFj_CxPc1AqpVG5eLiJuuA7gCADk
 
 # For testing - use your own email
 RECIPIENT_EMAIL=your-test-email@gmail.com
