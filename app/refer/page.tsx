@@ -377,7 +377,7 @@ export default function ReferPage() {
                 <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
                 <>
-                  Submit Referral <ArrowRight className="w-5 h-5" />
+              Submit Referral <ArrowRight className="w-5 h-5" />
                 </>
               )}
             </button>
