@@ -14,6 +14,7 @@ const Navigation = () => {
     { name: 'IT Consulting', href: '/consulting' },
     { name: 'Join Our Network', href: '/join' },
     { name: 'Refer a Friend', href: '/refer' },
+    { name: 'Green-Tech', href: '/green-tech' },
     { name: 'Timesheets', href: 'https://recoded.oncoreservices.com/', external: true },
   ]
 
