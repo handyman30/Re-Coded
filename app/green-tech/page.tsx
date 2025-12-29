@@ -3,14 +3,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Leaf } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 
 const GreenTechPage = () => {
   const stats = [
     { value: '>95%', label: 'client satisfaction rating' },
-    { value: '<14 days', label: 'time to shortlist' },
+    { value: '<7 days', label: 'time to shortlist' },
     { value: '500+', label: 'placements across tech' },
   ]
 
@@ -46,17 +45,15 @@ const GreenTechPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {/* Green-Tech Badge */}
-              <div className="flex items-center space-x-3 mb-8">
-                <div className="w-12 h-12 bg-[#3ecf8e]/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-[#3ecf8e]/30">
-                  <Leaf className="w-7 h-7 text-[#3ecf8e]" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-white font-semibold text-xl tracking-wide">
-                    Green<span className="text-[#3ecf8e]">Tech</span>
-                  </span>
-                  <span className="text-gray-400 text-xs tracking-widest">BY RECODED</span>
-                </div>
+              {/* Green-Tech Logo */}
+              <div className="mb-8">
+                <Image
+                  src="/assets/greentech-logo-full.png"
+                  alt="Green-Tech by Recoded"
+                  width={280}
+                  height={80}
+                  className="h-16 sm:h-20 w-auto"
+                />
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
